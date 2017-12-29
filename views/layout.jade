@@ -14,22 +14,40 @@ html
           span.navbar-toggler-icon
         div.collapse.navbar-collapse#navbar
           ul.navbar-nav.mr-auto
-            li.nav-item.active
+            li.nav-item
+            if title=='三味书屋'  
+              a.nav-link.active(href='/') 首页
+            else
               a.nav-link(href='/') 首页
           ul.navbar-nav.my-2.my-lg-0
             if user
               li.nav-item
+              if title=='所有图书' 
+                a.nav-link.active(href='/all') 所有图书
+              else
                 a.nav-link(href='/all') 所有图书
               li.nav-item
+              if title=='我的图书'
+                a.nav-link.active(href='/my') 我的图书
+              else
                 a.nav-link(href='/my') 我的图书
               li.nav-item
-                a.nav-link(href='/setting') 设置
+                if title=='设置'
+                  a.nav-link.active(href='/setting') 设置
+                else 
+                  a.nav-link(href='/setting') 设置
               li.nav-item
                 a.nav-link(href='/logout') 退出
             else
               li.nav-item
+              if title=='注册'
+                a.nav-link.active(href='/register') 注册
+              else
                 a.nav-link(href='/register') 注册
               li.nav-item
+              if title=='登录'
+                a.nav-link.active(href='/login') 登录
+              else
                 a.nav-link(href='/login') 登录
     if message && message.length
         br

@@ -163,7 +163,7 @@ app.post('/changePassoword', ensureLogin.ensureLoggedIn(), function(req, res) {
 
 app.get('/login',
   function(req, res){
-    res.render('login', {message: req.flash('error')});
+    res.render('login', {title: '登录',message: req.flash('error')});
   });
   
 app.post('/login', 
@@ -178,7 +178,7 @@ app.post('/login',
   });
   
 app.get('/register', function(req, res) {
-  res.render('register', {message: req.flash('info')});
+  res.render('register', {title:'注册',message: req.flash('info')});
 });
   
 app.post('/register', 

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  br
+  div.container
+    h3 更新信息
+    form(method='post')
+      div.form-group
+        label(for='province') 省
+        input.form-control#province(type='text' name='province' placeholder='输入省份' value='#{user.province}')
+      div.form-group
+        label(for='city') 市
+        input.form-control#city(type='text' name='city' placeholder='输入城市' value='#{user.city}')
+      button.btn.btn-primary(type='submit') 提交
+    br
+    h3 修改密码
+    form(action='/changePassoword' method='post')
+      div.form-group
+        label(for='password-old') 原密码
+        input.form-control#password-old(type='password' name='oldPassword' placeholder='输入原密码')
+      div.form-group
+        label(for='password-new') 新密码
+        input.form-control#password-new(type='password' name='newPassword' placeholder='输入新密码')
+      button.btn.btn-primary(type='submit') 提交

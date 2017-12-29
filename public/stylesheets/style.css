@@ -1,0 +1,39 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.card {
+  width: 10rem;
+  height: 13rem;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.fa {
+  color: #FF4136;
+}
+
+.card .fa {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  cursor: pointer;
+}
+
+input {
+  margin-right: 10px;
+}
+
+footer {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}

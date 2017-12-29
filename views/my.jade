@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  br
+  div.container
+    div.btn-group(role='group')
+      button.btn.btn-secondary(type='button' onclick='$("#youBorrow").show();$("#borrowYou").hide()') 你借的
+      button.btn.btn-secondary(type='button' onclick='$("#youBorrow").hide();$("#borrowYou").show()') 借你的
+    br
+    br
+    div.list-group#youBorrow(style='display:none;')
+      each book in youBorrows
+        if !book.whetherBack
+          a.list-group-item.list-group-item-action #{book.name}
+        else
+          a.list-group-item.list-group-item-action(href='/back/#{book.id}') #{book.name}(点击归还)
+    div.list-group#borrowYou(style='display:none;')
+      each book in borrowYous
+        if !book.whetherBack
+          a.list-group-item.list-group-item-action #{book.name}
+        else
+          a.list-group-item.list-group-item-action #{book.name}(已归还)
+    br
+    h1 我的图书
+    form.form-inline(method='post')
+      div.form-group
+        label.sr-only(for='book')
+        input.form-control#book(name='book' type='text' placeholder='输入书名')
+      button.btn.btn-primary(type='submit') 添加
+    br
+    each book in books
+      div.card
+        img.card-img-top(src='#{book.pic}')
+        a(href='/delete/#{book.id}')
+          i.fa.fa-remove(aria-hidden='true')
+  

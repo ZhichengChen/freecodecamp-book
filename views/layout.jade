@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      div.container
+        a.navbar-brand(href='/') 三味书屋
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar' aria-controls='navbar' aria-expanded='false' aria-label='打开折叠菜单')
+          span.navbar-toggler-icon
+        div.collapse.navbar-collapse#navbar
+          ul.navbar-nav.mr-auto
+            li.nav-item.active
+              a.nav-link(href='/') 首页
+          ul.navbar-nav.my-2.my-lg-0
+            if user
+              li.nav-item
+                a.nav-link(href='/all') 所有图书
+              li.nav-item
+                a.nav-link(href='/my') 我的图书
+              li.nav-item
+                a.nav-link(href='/setting') 设置
+              li.nav-item
+                a.nav-link(href='/logout') 退出
+            else
+              li.nav-item
+                a.nav-link(href='/register') 注册
+              li.nav-item
+                a.nav-link(href='/login') 登录
+    if message && message.length
+        br
+        div.container
+          div(class='alert alert-info' role='alert')=message
+            button.close(type='button' data-dismiss='alert' aria-label='关闭')
+              span(aria-hidden='true') &times;
+          br
+    block content
+    br
+    footer.text-center
+      a(href='https://twitter.com/czc555') @czc555 |
+      a(href='https://github.com/ZhichengChen/freecodecamp-book') GitHub
+    block scripts
+      script(src='https://code.jquery.com/jquery-1.12.4.js')
+      script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js')
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js')
+      script(src='/javascripts/index.js')

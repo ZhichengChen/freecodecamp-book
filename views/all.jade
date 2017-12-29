@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  br
+  div.container
+    div.btn-group(role='group')
+      button.btn.btn-secondary(type='button' onclick='$("#youBorrow").show();$("#borrowYou").hide()') 你借的
+      button.btn.btn-secondary(type='button' onclick='$("#youBorrow").hide();$("#borrowYou").show()') 借你的
+    br
+    br
+    div.list-group#youBorrow(style='display:none;')
+      each book in youBorrows
+        if book.whetherBack
+          a.list-group-item.list-group-item-action #{book.name}
+        else
+          a.list-group-item.list-group-item-action(href='/back/#{book.id}') #{book.name}(点击归还)
+    div.list-group#borrowYou(style='display:none;')
+      each book in borrowYous
+        if !book.whetherBack
+          a.list-group-item.list-group-item-action #{book.name}
+        else
+          a.list-group-item.list-group-item-action #{book.name}(已归还)
+    br
+    h1 所有图书
+    点击
+    i.fa.fa-bookmark(aria-hidden='true')
+    发起借阅请求
+    each book in books
+      div.card
+        img.card-img-top(src='#{book.pic}')
+        if book.canBorrow
+          a(href='/borrow/#{book.id}')
+            i.fa.fa-bookmark(aria-hidden='true')
+        book.canBorrow
+  
